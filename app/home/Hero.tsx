@@ -41,7 +41,7 @@ export default function UltimateHero() {
             <span
               className={`${montserrat.className} text-[#991B1B] text-[10px] lg:text-[12px] font-black uppercase tracking-[0.5em]`}
             >
-              Luxury Assets • Integrated LTD
+              Luxury Assets
             </span>
           </motion.div>
 

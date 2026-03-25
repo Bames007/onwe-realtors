@@ -20,6 +20,42 @@ const navLinks = [
   { name: "Neighborhoods", href: "#neighborhoods" },
 ];
 
+// Consistent FCT Data Structure
+const fctDistricts = [
+  {
+    label: "PRIME",
+    districts: [
+      "Maitama / Maitama 2",
+      "Asokoro",
+      "Wuse 2",
+      "Guzape / Guzape 2",
+    ],
+  },
+  {
+    label: "STRATEGIC",
+    districts: [
+      "Jabi",
+      "Utako",
+      "Wuye",
+      "Dakibiyu",
+      "Mabushi",
+      "Jahi",
+      "Katampe / Extension",
+    ],
+  },
+  {
+    label: "GROWTH",
+    districts: [
+      "Apo",
+      "Kaura",
+      "Durumi",
+      "Airport Road",
+      "Wuse Zones",
+      "Garki Areas",
+    ],
+  },
+];
+
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -59,7 +95,7 @@ export function Header() {
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
-          {/* LOGO SECTION - Designed for White Background Logos */}
+          {/* LOGO SECTION */}
           <div
             className="flex items-center gap-4 group cursor-pointer"
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
@@ -124,7 +160,7 @@ export function Header() {
           </div>
         </div>
 
-        {/* INTEGRATED SEARCH DROPDOWN */}
+        {/* INTEGRATED SEARCH DROPDOWN (LOCATIONS ADDED) */}
         <AnimatePresence>
           {isSearchOpen && (
             <motion.div
@@ -139,24 +175,33 @@ export function Header() {
                   style={{ borderRadius: "0 3rem 0 3rem" }}
                 >
                   <div className="flex flex-col lg:flex-row divide-y lg:divide-y-0 lg:divide-x divide-slate-100">
+                    {/* DISTRICT SELECTOR */}
                     <div className="flex-1 p-6">
                       <div className="flex items-center gap-2 mb-2">
                         <HiOutlineMapPin className="text-[#C5A059]" />
                         <label
                           className={`${montserrat.className} text-[9px] font-black text-[#C5A059] uppercase tracking-widest`}
                         >
-                          District
+                          Search District
                         </label>
                       </div>
                       <select
-                        className={`${playfair.className} w-full text-xl text-[#002349] bg-transparent outline-none cursor-pointer`}
+                        className={`${playfair.className} w-full text-xl text-[#002349] bg-transparent outline-none cursor-pointer appearance-none`}
                       >
-                        <option>Maitama</option>
-                        <option>Asokoro</option>
-                        <option>Guzape</option>
-                        <option>Wuse II</option>
+                        <option value="">Anywhere in FCT</option>
+                        {fctDistricts.map((group) => (
+                          <optgroup key={group.label} label={group.label}>
+                            {group.districts.map((d) => (
+                              <option key={d} value={d}>
+                                {d}
+                              </option>
+                            ))}
+                          </optgroup>
+                        ))}
                       </select>
                     </div>
+
+                    {/* ASSET TYPE */}
                     <div className="flex-1 p-6">
                       <div className="flex items-center gap-2 mb-2">
                         <HiOutlineHomeModern className="text-[#C5A059]" />
@@ -167,14 +212,17 @@ export function Header() {
                         </label>
                       </div>
                       <select
-                        className={`${playfair.className} w-full text-xl text-[#002349] bg-transparent outline-none cursor-pointer`}
+                        className={`${playfair.className} w-full text-xl text-[#002349] bg-transparent outline-none cursor-pointer appearance-none`}
                       >
-                        <option>Mansion</option>
+                        <option>Residential Land</option>
+                        <option>Sovereign Mansion</option>
                         <option>Penthouse</option>
-                        <option>Land</option>
-                        <option>Commercial</option>
+                        <option>Commercial Plot</option>
+                        <option>Industrial Acreage</option>
                       </select>
                     </div>
+
+                    {/* SEARCH BUTTON */}
                     <div className="lg:w-48 p-2">
                       <button
                         className="w-full h-full bg-[#002349] text-white py-6 flex flex-col items-center justify-center gap-2 group hover:bg-[#C5A059] transition-all"
@@ -195,7 +243,7 @@ export function Header() {
         </AnimatePresence>
       </motion.header>
 
-      {/* REGULATED MOBILE MENU */}
+      {/* MOBILE MENU */}
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
@@ -214,7 +262,7 @@ export function Header() {
                 <HiX size={20} />
               </button>
             </div>
-            <nav className="flex-1 flex flex-col justify-center px-10 gap-8">
+            <nav className="flex-1 flex flex-col justify-center px-10 gap-8 text-left">
               {navLinks.map((link, i) => (
                 <a
                   key={link.name}

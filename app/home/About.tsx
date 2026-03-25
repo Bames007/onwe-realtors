@@ -4,7 +4,11 @@ import { motion } from "framer-motion";
 import { Handshake } from "lucide-react";
 import { Montserrat, Playfair_Display } from "next/font/google";
 import { HiOutlineLibrary } from "react-icons/hi";
-import { HiOutlineShieldCheck, HiOutlineArrowUpRight } from "react-icons/hi2";
+import {
+  HiOutlineShieldCheck,
+  HiOutlineArrowUpRight,
+  HiOutlineMapPin,
+} from "react-icons/hi2";
 
 const playfair = Playfair_Display({ subsets: ["latin"] });
 const montserrat = Montserrat({ subsets: ["latin"] });
@@ -24,10 +28,9 @@ export default function AboutSection() {
       </div>
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
-        <div className="flex flex-col lg:flex-row gap-20 lg:gap-32 items-center">
-          {/* LEFT SIDE: MULTI-LAYERED VISUALS (IPAD & MOBILE OPTIMIZED) */}
+        <div className="flex flex-col lg:flex-row gap-20 lg:gap-32 items-center mb-32">
+          {/* LEFT SIDE: VISUALS */}
           <div className="flex-1 relative w-full group">
-            {/* Main Feature Image */}
             <motion.div
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -39,22 +42,6 @@ export default function AboutSection() {
                 src="https://images.unsplash.com/photo-1577412647305-991150c7d163?q=80&w=2070&auto=format&fit=crop"
                 alt="Modern Architecture"
                 className="w-full h-full object-cover grayscale-[20%] group-hover:grayscale-0 transition-all duration-1000 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-[#002349]/10 mix-blend-multiply" />
-            </motion.div>
-
-            {/* Secondary Floating "Trust" Image (Hidden on small mobile, visible on iPad+) */}
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.4, duration: 1 }}
-              className="hidden md:block absolute -bottom-12 -left-12 w-1/2 aspect-square overflow-hidden border-[12px] border-white shadow-2xl"
-              style={{ borderRadius: "0 4rem 0 4rem" }}
-            >
-              <img
-                src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069&auto=format&fit=crop"
-                alt="Abuja Office Integrity"
-                className="w-full h-full object-cover"
               />
             </motion.div>
 
@@ -77,27 +64,26 @@ export default function AboutSection() {
             </motion.div>
           </div>
 
-          {/* RIGHT SIDE: THE NARRATIVE */}
+          {/* RIGHT SIDE: NARRATIVE */}
           <div className="flex-1 text-left">
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
-              className="mb-10"
             >
               <div className="flex items-center gap-3 mb-6">
                 <span className="h-px w-8 bg-[#991B1B]" />
                 <span
                   className={`${montserrat.className} text-[#991B1B] text-[11px] font-black uppercase tracking-[0.5em]`}
                 >
-                  The Heritage
+                  Territorial Authority
                 </span>
               </div>
 
               <h2
                 className={`${playfair.className} text-5xl md:text-6xl lg:text-7xl text-[#002349] leading-[1.1] mb-8`}
               >
-                Security Meets <br />
-                <span className="text-[#C5A059] italic">The High Life.</span>
+                A Presence in Every <br />
+                <span className="text-[#C5A059] italic">FCT Hub.</span>
               </h2>
 
               <div
@@ -108,22 +94,24 @@ export default function AboutSection() {
                   <span className="font-black border-b-2 border-[#C5A059]/20">
                     Onwe Realtors Integrated Limited
                   </span>
-                  , we do not simply broker transactions; we curate legacies. In
-                  the heart of Nigeria’s capital, we recognize that land is the
-                  ultimate signature of success.
+                  , we have mapped the entire Federal Capital Territory to bring
+                  you the most secure assets. From the diplomatic enclaves of{" "}
+                  <span className="text-[#002349] font-bold">
+                    Maitama and Asokoro
+                  </span>{" "}
+                  to the high-growth corridors of{" "}
+                  <span className="text-[#002349] font-bold">Airport Road</span>
+                  .
                 </p>
                 <p className="pl-6 border-l-4 border-[#C5A059]">
-                  Our commitment is to absolute transparency. Every square inch
-                  of our portfolio in{" "}
-                  <span className="text-[#002349] font-bold">
-                    Maitama, Asokoro, and Guzape
-                  </span>{" "}
-                  is subjected to rigorous AGIS verification and legal scrutiny.
+                  We specialize in high-end residential, strategic commercial
+                  lands, and investment-grade assets across <strong>all</strong>{" "}
+                  Abuja phases.
                 </p>
               </div>
             </motion.div>
 
-            {/* VALUE PROPOSITION GRID */}
+            {/* CORE SERVICES SMALL GRID */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-16">
               {[
                 {
@@ -136,42 +124,99 @@ export default function AboutSection() {
                   title: "Legal Fortress",
                   desc: "In-house legal counsel for seamless Deed of Assignment.",
                 },
-                {
-                  icon: <Handshake />,
-                  title: "Elite Network",
-                  desc: "Off-market access to Abuja's most prestigious estates.",
-                },
-                {
-                  icon: <HiOutlineArrowUpRight />,
-                  title: "Asset Growth",
-                  desc: "Expert advisory on high-yield real estate investments.",
-                },
               ].map((item, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: i * 0.1 }}
-                  className="group flex gap-5"
-                >
-                  <div className="text-[#C5A059] text-3xl shrink-0 group-hover:scale-110 transition-transform">
+                <div key={i} className="flex gap-4">
+                  <div className="text-[#C5A059] text-2xl shrink-0">
                     {item.icon}
                   </div>
                   <div>
                     <h4
-                      className={`${montserrat.className} text-[11px] font-black text-[#002349] uppercase tracking-widest mb-1`}
+                      className={`${montserrat.className} text-[11px] font-black text-[#002349] uppercase tracking-widest`}
                     >
                       {item.title}
                     </h4>
-                    <p className="text-[12px] text-slate-500 leading-snug">
-                      {item.desc}
-                    </p>
+                    <p className="text-[12px] text-slate-500">{item.desc}</p>
                   </div>
-                </motion.div>
+                </div>
               ))}
             </div>
           </div>
         </div>
+
+        {/* --- THE FCT COVERAGE MATRIX --- */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          className="bg-slate-50 p-8 md:p-16 border border-slate-100"
+          style={{ borderRadius: "0 6rem 0 6rem" }}
+        >
+          <div className="flex items-center gap-4 mb-12">
+            <HiOutlineMapPin className="text-[#C5A059] text-3xl" />
+            <h3 className={`${playfair.className} text-3xl text-[#002349]`}>
+              FCT Portfolio Reach
+            </h3>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
+            {/* TIER 1 */}
+            <div>
+              <h4
+                className={`${montserrat.className} text-[10px] font-black text-[#C5A059] uppercase tracking-widest mb-6 border-b border-slate-200 pb-2`}
+              >
+                Prime Enclaves
+              </h4>
+              <ul
+                className={`${montserrat.className} text-xs space-y-3 text-slate-600 font-bold uppercase tracking-wider`}
+              >
+                <li>Maitama & Maitama 2</li>
+                <li>Asokoro</li>
+                <li>Wuse 2</li>
+                <li>Guzape & Guzape 2</li>
+              </ul>
+            </div>
+            {/* TIER 2 */}
+            <div>
+              <h4
+                className={`${montserrat.className} text-[10px] font-black text-[#C5A059] uppercase tracking-widest mb-6 border-b border-slate-200 pb-2`}
+              >
+                Strategic Hubs
+              </h4>
+              <ul
+                className={`${montserrat.className} text-xs space-y-3 text-slate-600 font-bold uppercase tracking-wider`}
+              >
+                <li>Jabi & Utako</li>
+                <li>Wuye & Dakibiyu</li>
+                <li>Mabushi & Jahi</li>
+                <li>Katampe & Extension</li>
+              </ul>
+            </div>
+            {/* TIER 3 */}
+            <div>
+              <h4
+                className={`${montserrat.className} text-[10px] font-black text-[#C5A059] uppercase tracking-widest mb-6 border-b border-slate-200 pb-2`}
+              >
+                Growth Zones
+              </h4>
+              <ul
+                className={`${montserrat.className} text-xs space-y-3 text-slate-600 font-bold uppercase tracking-wider`}
+              >
+                <li>Apo & Kaura</li>
+                <li>Durumi</li>
+                <li>Airport Road</li>
+                <li>Wuse Zones & Garki</li>
+              </ul>
+            </div>
+            {/* TIER 4 */}
+            <div className="bg-[#002349] p-6 text-white flex flex-col justify-center">
+              <p className={`${playfair.className} text-xl italic mb-2`}>
+                Complete FCT Access
+              </p>
+              <p className="text-[10px] uppercase font-black tracking-widest opacity-70">
+                If it exists in the Abuja Master Plan, we secure it.
+              </p>
+            </div>
+          </div>
+        </motion.div>
       </div>
     </section>
   );
