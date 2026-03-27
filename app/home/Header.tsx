@@ -8,10 +8,17 @@ import {
   HiOutlineMagnifyingGlass,
   HiOutlineMapPin,
   HiOutlineHomeModern,
+  HiOutlineBuildingOffice2,
 } from "react-icons/hi2";
 
 const playfair = Playfair_Display({ subsets: ["latin"] });
 const montserrat = Montserrat({ subsets: ["latin"] });
+
+const CONTACT_INFO = {
+  whatsapp: "2347063690379",
+  phones: ["07063690379", "08114984507", "07017011141"],
+  address: "#47 Lake Chad Crescent off IBB Way Maitama Main, Abuja-FCT",
+};
 
 const navLinks = [
   { name: "Home", href: "#home" },
@@ -20,7 +27,6 @@ const navLinks = [
   { name: "Neighborhoods", href: "#neighborhoods" },
 ];
 
-// Consistent FCT Data Structure
 const fctDistricts = [
   {
     label: "PRIME",
@@ -83,6 +89,10 @@ export function Header() {
     }
   };
 
+  const handleContactPrincipal = () => {
+    window.open(`https://wa.me/${CONTACT_INFO.whatsapp}`, "_blank");
+  };
+
   return (
     <>
       <motion.header
@@ -105,7 +115,7 @@ export function Header() {
               alt="Onwe Logo"
               className="h-10 lg:h-14 w-auto object-contain"
             />
-            <div className="hidden sm:block border-l border-slate-200 pl-4">
+            <div className="hidden sm:block border-l border-slate-200 pl-4 text-left">
               <h1
                 className={`${playfair.className} text-lg lg:text-xl text-[#002349] leading-tight`}
               >
@@ -138,7 +148,11 @@ export function Header() {
             {/* SEARCH TOGGLE */}
             <button
               onClick={() => setIsSearchOpen(!isSearchOpen)}
-              className={`p-3 rounded-full transition-all ${isSearchOpen ? "bg-[#C5A059] text-white" : "bg-slate-50 text-[#002349] hover:bg-slate-100"}`}
+              className={`p-3 rounded-full transition-all ${
+                isSearchOpen
+                  ? "bg-[#C5A059] text-white"
+                  : "bg-slate-50 text-[#002349] hover:bg-slate-100"
+              }`}
             >
               {isSearchOpen ? (
                 <HiX size={20} />
@@ -147,7 +161,10 @@ export function Header() {
               )}
             </button>
 
-            <button className="hidden sm:block bg-[#002349] text-white px-6 py-3 lg:px-8 lg:py-4 text-[9px] font-black uppercase tracking-widest hover:bg-[#C5A059] transition-all">
+            <button
+              onClick={handleContactPrincipal}
+              className="hidden sm:block bg-[#002349] text-white px-6 py-3 lg:px-8 lg:py-4 text-[9px] font-black uppercase tracking-widest hover:bg-[#C5A059] transition-all shadow-lg"
+            >
               Private Office
             </button>
 
@@ -160,7 +177,7 @@ export function Header() {
           </div>
         </div>
 
-        {/* INTEGRATED SEARCH DROPDOWN (LOCATIONS ADDED) */}
+        {/* INTEGRATED SEARCH DROPDOWN */}
         <AnimatePresence>
           {isSearchOpen && (
             <motion.div
@@ -169,14 +186,14 @@ export function Header() {
               exit={{ height: 0, opacity: 0 }}
               className="overflow-hidden bg-white border-t border-slate-50"
             >
-              <div className="max-w-5xl mx-auto py-8 lg:py-12 px-6">
+              <div className="max-w-6xl mx-auto py-8 lg:py-12 px-6">
                 <div
                   className="bg-white shadow-2xl p-2 border border-slate-100"
                   style={{ borderRadius: "0 3rem 0 3rem" }}
                 >
                   <div className="flex flex-col lg:flex-row divide-y lg:divide-y-0 lg:divide-x divide-slate-100">
                     {/* DISTRICT SELECTOR */}
-                    <div className="flex-1 p-6">
+                    <div className="flex-1 p-6 text-left">
                       <div className="flex items-center gap-2 mb-2">
                         <HiOutlineMapPin className="text-[#C5A059]" />
                         <label
@@ -202,7 +219,7 @@ export function Header() {
                     </div>
 
                     {/* ASSET TYPE */}
-                    <div className="flex-1 p-6">
+                    <div className="flex-1 p-6 text-left">
                       <div className="flex items-center gap-2 mb-2">
                         <HiOutlineHomeModern className="text-[#C5A059]" />
                         <label
@@ -214,12 +231,27 @@ export function Header() {
                       <select
                         className={`${playfair.className} w-full text-xl text-[#002349] bg-transparent outline-none cursor-pointer appearance-none`}
                       >
-                        <option>Residential Land</option>
                         <option>Sovereign Mansion</option>
-                        <option>Penthouse</option>
-                        <option>Commercial Plot</option>
+                        <option>Residential Land</option>
+                        <option>Commercial Plaza</option>
+                        <option>Penthouse Portfolio</option>
                         <option>Industrial Acreage</option>
                       </select>
+                    </div>
+
+                    {/* OFFICE CONTACT INFO (SYNCED) */}
+                    <div className="flex-1 p-6 hidden xl:block text-left">
+                      <div className="flex items-center gap-2 mb-2">
+                        <HiOutlineBuildingOffice2 className="text-[#C5A059]" />
+                        <label
+                          className={`${montserrat.className} text-[9px] font-black text-[#C5A059] uppercase tracking-widest`}
+                        >
+                          Principal Office
+                        </label>
+                      </div>
+                      <p className="text-[10px] text-slate-400 font-bold uppercase leading-relaxed">
+                        {CONTACT_INFO.address}
+                      </p>
                     </div>
 
                     {/* SEARCH BUTTON */}
@@ -257,7 +289,7 @@ export function Header() {
               <img src="/logo.png" alt="Logo" className="h-8 w-auto" />
               <button
                 onClick={() => setMobileMenuOpen(false)}
-                className="w-10 h-10 bg-[#002349] text-white rounded-full flex items-center justify-center"
+                className="w-10 h-10 bg-[#002349] text-white rounded-full flex items-center justify-center shadow-lg"
               >
                 <HiX size={20} />
               </button>
@@ -280,8 +312,14 @@ export function Header() {
               ))}
             </nav>
             <div className="p-10 bg-[#002349]">
-              <button className="w-full py-4 bg-[#C5A059] text-white text-[10px] font-black uppercase tracking-widest">
-                Contact Principal
+              <p className="text-[9px] text-white/40 uppercase font-black tracking-widest mb-4 text-left">
+                Principal HQ: Maitama
+              </p>
+              <button
+                onClick={handleContactPrincipal}
+                className="w-full py-5 bg-[#C5A059] text-white text-[10px] font-black uppercase tracking-widest shadow-xl"
+              >
+                Contact Principal Office
               </button>
             </div>
           </motion.div>

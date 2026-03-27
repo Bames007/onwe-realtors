@@ -15,6 +15,7 @@ import PropertyListings from "./PropertyListings";
 
 import { Playfair_Display } from "next/font/google";
 import UltimateHero from "./Hero";
+import { CurrentListings } from "./CurrentListings";
 const playfair = Playfair_Display({
   subsets: ["latin"],
   variable: "--font-playfair",
@@ -66,6 +67,8 @@ export default function HomePage() {
       </section>
 
       <FeaturedListings />
+
+      <CurrentListings />
 
       <section id="neighborhoods">
         <Neighborhoods />

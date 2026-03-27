@@ -32,7 +32,7 @@ export function WhatsAppButton() {
           className="fixed bottom-8 right-8 z-[9999] flex flex-col items-end gap-4"
         >
           {/* TOOLTIP GREETING */}
-          <motion.div
+          {/* <motion.div
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 3, duration: 0.8 }}
@@ -47,7 +47,7 @@ export function WhatsAppButton() {
             >
               Consult the Principal
             </span>
-          </motion.div>
+          </motion.div> */}
 
           {/* THE BUTTON */}
           <motion.a

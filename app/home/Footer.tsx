@@ -11,157 +11,105 @@ import {
 const playfair = Playfair_Display({ subsets: ["latin"] });
 const montserrat = Montserrat({ subsets: ["latin"] });
 
+const CONTACT_INFO = {
+  whatsapp: "2347063690379",
+  phones: ["07063690379", "08114984507", "07017011141"],
+  email: "inquiry@onwerealtors.com",
+  address: "#47 Lake Chad Crescent off IBB Way Maitama Main, Abuja-FCT",
+};
+
 export function Footer() {
   return (
     <footer className="bg-white text-[#002349] pt-20 pb-10 border-t border-slate-100">
       <div className="max-w-7xl mx-auto px-6">
-        {/* --- BRAND ARCHITECTURE SECTION --- */}
-        <div className="flex flex-col items-center text-center mb-16 lg:mb-24">
-          {/* Logo Container */}
-          <div className="mb-8">
-            <img
-              src="/logo.png"
-              alt="Onwe Realtors Logo"
-              className="h-20 md:h-28 w-auto object-contain mx-auto"
-            />
-          </div>
-
-          {/* Line 1: Gold */}
+        {/* --- BRAND ARCHITECTURE --- */}
+        <div className="flex flex-col items-center text-center mb-16">
+          <img
+            src="/logo.png"
+            alt="Onwe Realtors Logo"
+            className="h-20 md:h-24 w-auto object-contain mx-auto mb-6"
+          />
           <h2
-            className={`${playfair.className} text-4xl md:text-6xl text-[#C5A059] leading-tight`}
+            className={`${playfair.className} text-3xl md:text-5xl text-[#002349] leading-tight`}
           >
-            Onwe Realtors
+            Onwe <span className="text-[#C5A059] italic">Realtors</span>
           </h2>
-
-          {/* Line 2: Blue */}
           <h3
-            className={`${montserrat.className} text-xl md:text-3xl font-black text-[#002349] uppercase tracking-[0.2em] mt-2`}
+            className={`${montserrat.className} text-[10px] md:text-xs font-black text-[#002349]/40 uppercase tracking-[0.4em] mt-2`}
           >
             Integrated LTD
           </h3>
-
-          {/* Line 3: Red Tagline */}
-          <p
-            className={`${montserrat.className} text-[10px] md:text-sm font-bold uppercase tracking-[0.4em] text-[#991B1B] mt-6`}
-          >
-            Your Shelter, Our Priority.
-          </p>
-
-          <div className="h-[2px] w-16 bg-[#C5A059]/30 mt-10 rounded-full" />
         </div>
 
-        {/* --- RESPONSIVE LINKS GRID --- */}
-        {/* Mobile: 1 col (gap-12)
-            iPad: 2 cols (md:grid-cols-2)
-            Desktop: 4 cols (lg:grid-cols-4)
-        */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 mb-20 border-y border-slate-50 py-16">
-          {/* Column 1: Navigation */}
-          <div className="flex flex-col items-center md:items-start gap-4">
-            <h4
-              className={`${montserrat.className} text-[10px] font-black text-[#C5A059] uppercase tracking-widest border-b border-[#C5A059]/20 pb-2`}
-            >
-              Corporate
-            </h4>
-            <a
-              href="#home"
-              className="text-xs font-bold text-slate-500 hover:text-[#991B1B] transition-colors"
-            >
-              The Agency
-            </a>
-            <a
-              href="#properties"
-              className="text-xs font-bold text-slate-500 hover:text-[#991B1B] transition-colors"
-            >
-              Portfolio
-            </a>
-            <a
-              href="#neighborhoods"
-              className="text-xs font-bold text-slate-500 hover:text-[#991B1B] transition-colors"
-            >
-              Districts
-            </a>
-          </div>
-
-          {/* Column 2: Trust */}
-          <div className="flex flex-col items-center md:items-start gap-4">
-            <h4
-              className={`${montserrat.className} text-[10px] font-black text-[#C5A059] uppercase tracking-widest border-b border-[#C5A059]/20 pb-2`}
-            >
-              Legal Trust
-            </h4>
-            <span className="text-xs font-bold text-slate-400">
-              AGIS Verification
-            </span>
-            <span className="text-xs font-bold text-slate-400">
-              Title Authentication
-            </span>
-            <span className="text-xs font-bold text-slate-400">
-              Land Registry Search
-            </span>
-          </div>
-
-          {/* Column 3: Presence */}
-          <div className="flex flex-col items-center md:items-start gap-4">
-            <h4
-              className={`${montserrat.className} text-[10px] font-black text-[#C5A059] uppercase tracking-widest border-b border-[#C5A059]/20 pb-2`}
-            >
-              Inquiry
-            </h4>
-            <span className="text-xs font-bold text-slate-500">
-              Maitama, Abuja
-            </span>
-            <span className="text-xs font-bold text-slate-500">
-              info@onwerealtors.com
-            </span>
-            <span className="text-xs font-bold text-slate-500">
-              +234 812 000 0000
-            </span>
-          </div>
-
-          {/* Column 4: Social Concierge */}
-          <div className="flex flex-col items-center lg:items-end gap-6">
-            <h4
-              className={`${montserrat.className} text-[10px] font-black text-[#C5A059] uppercase tracking-widest`}
-            >
-              Follow Us
-            </h4>
-            <div className="flex gap-4">
-              {[FaInstagram, FaFacebookF, FaLinkedinIn, FaWhatsapp].map(
-                (Icon, i) => (
-                  <div
-                    key={i}
-                    className="w-10 h-10 border border-slate-100 flex items-center justify-center hover:bg-[#002349] hover:text-white transition-all duration-500 cursor-pointer rounded-full shadow-sm"
-                  >
-                    <Icon size={16} />
-                  </div>
-                ),
-              )}
-            </div>
-          </div>
-        </div>
-
-        {/* --- EBCOM CREDIT & COPYRIGHT --- */}
-        <div className="flex flex-col lg:flex-row justify-between items-center gap-8">
+        {/* --- SIMPLE CONTACT BAR --- */}
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-12 py-12 border-y border-slate-50 mb-16">
+          {/* Address */}
           <div className="text-center lg:text-left">
-            <p
-              className={`${montserrat.className} text-[9px] font-black text-slate-300 uppercase tracking-[0.4em]`}
+            <h4
+              className={`${montserrat.className} text-[9px] font-black text-[#C5A059] uppercase tracking-widest mb-2`}
             >
-              © 2026 ONWE REALTORS INTEGRATED LTD.
+              Principal Office
+            </h4>
+            <p className="text-xs font-bold text-slate-500 max-w-[280px] leading-relaxed uppercase">
+              {CONTACT_INFO.address}
             </p>
           </div>
 
-          <div
-            className={`${montserrat.className} flex items-center gap-3 bg-slate-50 px-8 py-4 rounded-full border border-slate-100 shadow-inner group hover:border-[#C5A059]/30 transition-all`}
+          {/* Socials */}
+          <div className="flex gap-4">
+            {[
+              { Icon: FaInstagram, link: "#" },
+              { Icon: FaLinkedinIn, link: "#" },
+              {
+                Icon: FaWhatsapp,
+                link: `https://wa.me/${CONTACT_INFO.whatsapp}`,
+              },
+            ].map((social, i) => (
+              <a
+                key={i}
+                href={social.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-12 h-12 border border-slate-100 flex items-center justify-center hover:bg-[#002349] hover:text-white transition-all duration-500 rounded-full shadow-sm"
+              >
+                <social.Icon size={18} />
+              </a>
+            ))}
+          </div>
+
+          {/* Direct Contact */}
+          <div className="text-center lg:text-right">
+            <h4
+              className={`${montserrat.className} text-[9px] font-black text-[#C5A059] uppercase tracking-widest mb-2`}
+            >
+              Direct Inquiry
+            </h4>
+            <p className="text-xs font-black text-[#002349] tracking-widest mb-1">
+              {CONTACT_INFO.phones[0]}
+            </p>
+            <p className="text-[10px] font-bold text-slate-400 uppercase tracking-tighter">
+              {CONTACT_INFO.email}
+            </p>
+          </div>
+        </div>
+
+        {/* --- FOOTER CREDITS --- */}
+        <div className="flex flex-col md:flex-row justify-between items-center gap-6">
+          <p
+            className={`${montserrat.className} text-[9px] font-black text-slate-300 uppercase tracking-[0.3em]`}
           >
-            <span className="text-[9px] font-black text-slate-400 uppercase tracking-widest">
-              Digital Infrastructure by
+            © 2026 ONWE REALTORS. ALL RIGHTS RESERVED.
+          </p>
+
+          <div className="flex items-center gap-2 opacity-60 grayscale hover:grayscale-0 transition-all">
+            <span
+              className={`${montserrat.className} text-[8px] font-black text-slate-400 uppercase tracking-widest`}
+            >
+              Design by
             </span>
             <a
               href="https://www.ebcomtechnologies.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-[10px] font-black text-[#002349] hover:text-[#991B1B] transition-all uppercase tracking-[0.3em] border-b-2 border-[#C5A059] pb-0.5"
+              className="text-[9px] font-black text-[#002349] uppercase tracking-[0.2em] border-b border-[#C5A059]"
             >
               EBCom Technologies
             </a>
