@@ -28,7 +28,7 @@ const CONTACT_INFO = {
 const listings = [
   {
     id: "ON-JAB-001",
-    title: "The Sovereign Plaza",
+    title: "The Plaza",
     location: "Jabi, Abuja",
     price: "₦8 Billion (Asking)",
     category: "Commercial",
@@ -97,7 +97,7 @@ const listings = [
   {
     id: "ON-DUR-006",
     title: "Industrial Logistics Hub",
-    location: "Durumi / Area 1, Abuja",
+    location: "Durumi, Abuja",
     price: "₦4.5 Billion",
     category: "Industrial",
     type: "image",
