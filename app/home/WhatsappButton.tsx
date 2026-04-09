@@ -16,7 +16,7 @@ export function WhatsAppButton() {
     return () => clearTimeout(timer);
   }, []);
 
-  const phoneNumber = "2348120000000"; // Replace with actual owner number
+  const phoneNumber = "2347063690379"; // Replace with actual owner number
   const message =
     "Hello, I am interested in one of your Prime Assets in Abuja. Can we schedule a private consultation?";
 

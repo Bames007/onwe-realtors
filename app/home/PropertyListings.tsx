@@ -30,7 +30,7 @@ const listings = [
     price: "₦ 1.8 Billion",
     location: "Maitama, Abuja",
     specs: { beds: 7, baths: 9, size: "1,900 sqm" },
-    img: "https://images.unsplash.com/photo-1600607687940-47a04b409790?q=80&w=2070&auto=format&fit=crop",
+    img: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=1000",
     videoUrl: "https://www.youtube.com/embed/0S9mwufHcA8?autoplay=1",
     tag: "Prime Asset",
   },
